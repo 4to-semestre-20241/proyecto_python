@@ -3,4 +3,46 @@
 {% block titulo %}{% endblock %}
 
 {% block contenido %}
+<!-- //TODO: completar vista -->
+<main>
+  <div id="img"></div>
+  <div>
+    <form method="post" action="/qr/codificar_resultado" enctype="multipart/form-data">
+      <div>
+        
+        <div>
+          <label for="text">Texto</label>
+          <input type="text" name="text" placeholder="Ingrese texto a codificar">
+        </div>
+        
+        <div>
+          <label for="size">Tamaño</label>
+          <select name="size" id="size">
+            <option value="10"><span></span> 10x10 </option>
+          </select>
+        </div>
+        
+      </div>
+      
+      <div>
+        
+        <div>
+          <label for="color">Color</label>
+          <select name="colot">
+            <option value="rojo">Rojo</option>
+          </select>
+        </div>
+        
+        <div>
+          <label for="logo">Logo</label>
+          <input type="file" name="logo" id="logo">
+        </div>
+        
+      </div>
+      <div>
+        <button type="submit">Generar QR</button>
+      </div>
+    </form>
+  </div>
+</main>
 {% endblock %}

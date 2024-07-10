@@ -3,4 +3,15 @@
 {% block titulo %}{% endblock %}
 
 {% block contenido %}
+<main>
+  <h1>Colaboradores</h1>
+  <div>
+    {% for colaborador in colaboradores %}
+      <div>
+        <span>{ colaborador.nombre }</span>
+        <a href="{ colaborador.link }">{ colaborador.nombre_usuario} </a>
+      </div>
+    {% endfor %}
+  </div>
+</main>
 {% endblock %}

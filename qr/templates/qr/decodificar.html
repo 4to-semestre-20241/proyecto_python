@@ -3,4 +3,25 @@
 {% block titulo %}{% endblock %}
 
 {% block contenido %}
+<main>
+  <form method="POST" action="/qr/decodificar" enctype="multipart/form-data">
+    <div>
+      <!-- //TODO: agregar scan -->
+    </div>
+    <div>
+      <label for="qr">Imagen QR</label>
+      <input type="file" name="qr" id="qr">
+    </div>
+    <div>
+      <button>Descodificar</button>
+    </div>
+  </form>
+  <div>
+    <div>
+      <span></span>
+      <!-- //TODO: agregar logica de copiado -->
+      <button>copiar</button>
+    </div>
+  </div>
+</main>
 {% endblock %}

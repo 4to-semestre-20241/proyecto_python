@@ -3,4 +3,13 @@
 {% block titulo %}Qr Generado{% endblock %}
 
 {% block contenido %}
+<main>
+  <h1>Su código QR ha sido generado</h1>
+  <div>
+    <img src="{ruta_imagen}">
+  </div>
+  <div>
+    <a href="{ruta_imagen}" download></a>
+  </div>
+</main>
 {% endblock %}
