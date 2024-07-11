@@ -8,8 +8,8 @@
   <div>
     {% for colaborador in colaboradores %}
       <div>
-        <span>{ colaborador.nombre }</span>
-        <a href="{ colaborador.link }">{ colaborador.nombre_usuario} </a>
+        <span>{{ colaborador.nombre }}</span>
+        <a href="{{ colaborador.link }}">{{ colaborador.nombre_usuario }}</a>
       </div>
     {% endfor %}
   </div>

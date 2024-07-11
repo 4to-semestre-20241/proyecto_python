@@ -1,15 +1,25 @@
 {% extends "qr/base.html" %}
 
+{% load qr_code %}
+
 {% block titulo %}Qr Generado{% endblock %}
 
 {% block contenido %}
 <main>
-  <h1>Su código QR ha sido generado</h1>
   <div>
-    <img src="{ruta_imagen}">
-  </div>
-  <div>
-    <a href="{ruta_imagen}" download></a>
+    <h1 class="text-4xl text-sky-900 text-center pt-10 pb-5">Su código QR ha sido generado</h1>
+    <div id="img_contenedor" class="flex justify-center py-5">
+      {% qr_from_text texto size=tamano dark_color=color image_format="png" %}
+    </div>
+    <div class="flex justify-center py-5">
+      <a id="link" class="btn bg-sky-900 active:opacity-50 text-white mx-auto" download>Descargar</a>
+    </div>
   </div>
 </main>
+<script>
+  let img = document.getElementById('img_contenedor').querySelector('img');
+  let link = document.getElementById('link');
+
+  link.href = img.src;
+</script>
 {% endblock %}

@@ -1,13 +1,19 @@
 {% extends "qr/base.html" %}
+{% load static %}
 
-{% block titulo %}{% endblock %}
+{% block titulo %}Bienvenido{% endblock %}
 
 {% block contenido %}
-<main>
-  <h1>Texto Promocional</h1>
-  <div>
-    <a href="/qr/codificar">Codificar</a>
-    <a href="/qr/decodificar">Decodificar</a>
+<main class="relative w-full h-full">
+  <img src="{% static 'qr/img/bg-principal.jpg' %}" class="absolute top-0 left-0 -z-10 w-full h-full">
+  <div class="w-1/2 mx-auto">
+    <div class="pb-10">
+      <h1 class="bg-white/75 text-4xl text-center">Sistema para la generación y códificación de códigos QR v2.0</h1>
+    </div>
+    <div class="flex justify-between pt-10">
+      <a href="/qr/codificar" class="btn bg-sky-900 text-white active:opacity-50">Codificar</a>
+      <a href="/qr/decodificar" class="btn bg-sky-900 text-white active:opacity-50">Decodificar</a>
+    </div>
   </div>
 </main>
 {% endblock %}

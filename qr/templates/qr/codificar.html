@@ -1,48 +1,61 @@
 {% extends "qr/base.html" %}
+{% load static %}
 
-{% block titulo %}{% endblock %}
+{% block titulo %}Codificar{% endblock %}
 
 {% block contenido %}
 <!-- //TODO: completar vista -->
 <main>
   <div id="img"></div>
   <div>
-    <form method="post" action="/qr/codificar_resultado" enctype="multipart/form-data">
-      <div>
-        
-        <div>
-          <label for="text">Texto</label>
-          <input type="text" name="text" placeholder="Ingrese texto a codificar">
-        </div>
-        
-        <div>
-          <label for="size">Tamaño</label>
-          <select name="size" id="size">
-            <option value="10"><span></span> 10x10 </option>
-          </select>
-        </div>
-        
+    <div class="flex">
+      <div class="w-1/2">
+        <img src="{% static 'qr/img/bg-codificar.jpg' %}" class="w-full h-full">
       </div>
-      
-      <div>
-        
-        <div>
-          <label for="color">Color</label>
-          <select name="colot">
-            <option value="rojo">Rojo</option>
-          </select>
-        </div>
-        
-        <div>
-          <label for="logo">Logo</label>
-          <input type="file" name="logo" id="logo">
-        </div>
-        
+      <div class="w-1/2">
+        <h1 class="p-4 text-3xl text-sky-900">Crear Código QR</h1>
+        <form method="post" action="/qr/codificar_resultado">
+          {% csrf_token %}
+          <div class="flex">
+            
+            <div class="form-control w-1/2 py-2 px-4">
+              <label for="texto" class="label">Texto</label>
+              <input type="text" id="texto" name="texto" class="input input-bordered border-sky-900 focus:outline-sky-900" placeholder="Ingrese texto a codificar">
+            </div>
+            
+            <div class="form-control w-1/2 py-2 px-4">
+              <label for="tamano" class="label">Tamaño</label>
+              <select name="tamano" id="tamano" class="select select-bordered border-sky-900 focus:outline-sky-900">
+                <option value="3"> 3 x 3 </option>
+                <option value="5"> 5 x 5 </option>
+                <option value="10"> 10 x 10 </option>
+                <option value="15"> 15 x 15 </option>
+                <option value="20"> 20 x 20 </option>
+              </select>
+            </div>
+            
+          </div>
+          
+          <div class="flex">
+            <div class="form-control w-1/2 py-2 px-4">
+              <label for="color" class="label">Color</label>
+              <select name="color" id="color" class="select select-bordered border-sky-900 focus:outline-sky-900">
+                <option value="negro">Negro</option>
+                <option value="azul">Azul</option>
+                <option value="gris">Gris</option>
+                <option value="rojo">Rojo</option>
+                <option value="rosa">Rosa</option>
+                <option value="morado">Morado</option>
+                <option value="verde">Verde</option>
+              </select>
+            </div>
+          </div>
+          <div class="pt-2 px-4 flex justify-end">
+            <button type="submit" class="btn bg-sky-900 text-white active:opacity-50 active:text-black">Crear QR</button>
+          </div>
+        </form>
       </div>
-      <div>
-        <button type="submit">Generar QR</button>
-      </div>
-    </form>
+    </div>
   </div>
 </main>
 {% endblock %}

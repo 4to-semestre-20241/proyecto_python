@@ -1,9 +1,9 @@
 {% load static %}
-<html>
+<html data-theme="lofi" clasiss="bg-white text-black">
     <head>
         <title>Sistema QR - {% block titulo %} Bienvenido {% endblock %}</title>
-        <link rel="styleshhet" href="{{ static('css/daisyui.min.css') }}" type="text/css">
-        <script src="{{ static('js/tailwindcss.js) }}"></script>
+        <link rel="stylesheet" href="{% static 'qr/css/daisyui.min.css' %}" type="text/css">
+        <script src="{% static 'qr/js/tailwindcss.js' %}"></script>
     </head>
     <body>
         <header class="navbar bg-sky-900 flex justify-between px-2">
