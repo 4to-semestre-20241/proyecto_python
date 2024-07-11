@@ -1,26 +1,34 @@
 {% extends "qr/base.html" %}
 
-{% block titulo %}{% endblock %}
+{% block titulo %}Decodificar{% endblock %}
 
 {% block contenido %}
 <main>
-  <form method="POST" action="/qr/decodificar" enctype="multipart/form-data">
+  <div class="py-2 px-4 bg-yellow-300 text-sm">SOLO SUBIR IMAGEN DE CÓDIGO QR CON CONTENIDO DE TEXTO</div>
+  <div class="w-2/4 mx-auto">
+    <h1 class="text-3xl text-sky-900 text-center py-4">Decifrar Código QR</h1>
+    <form method="POST" action="/qr/decodificar" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div>
+        <!-- //TODO: agregar scan -->
+      </div>
+      <div class="flex items-center">
+        <div class="form-control p-2 w-1/2">
+          <label for="qr" class="label">Imagen de código QR</label>
+          <input type="file" name="img" id="qr" class="file-input file-input-bordered border-sky-900 active:outline-sky-900">
+        </div>
+        <div class="flex items-center justify-end p-2 w-1/2">
+          <button class="btn bg-sky-900 active:opacity-50 text-white">Descodificar</button>
+        </div>
+      </div>
+    </form>
     <div>
-      <!-- //TODO: agregar scan -->
-    </div>
-    <div>
-      <label for="qr">Imagen QR</label>
-      <input type="file" name="qr" id="qr">
-    </div>
-    <div>
-      <button>Descodificar</button>
-    </div>
-  </form>
-  <div>
-    <div>
-      <span></span>
-      <!-- //TODO: agregar logica de copiado -->
-      <button>copiar</button>
+      <span class="label">Resultado</span>
+      <div class="flex border border-black items-center">
+        <span class="flex items-center justify-center w-4/5">{{ resultado }}</span>
+        <!-- //TODO: agregar logica de copiado -->
+        <button class="btn btn-sm bg-sky-900 text-white w-1/5">copiar</button>
+      </div>
     </div>
   </div>
 </main>

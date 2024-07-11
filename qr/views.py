@@ -1,5 +1,8 @@
+from pyzbar.pyzbar import decode
+from PIL import Image
+from io import BytesIO
+from django.core.files.temp import NamedTemporaryFile
 from django.shortcuts import render
-from django.http import HttpResponse
 
 import qrcode
 
@@ -56,4 +59,14 @@ def creditos(request):
   return render(request, 'qr/creditos.html', {'colaboradores': colaboradores})
   
 def decodificar(request):
-  return render(request, 'qr/decodificar.html', {})
+  texto = ''
+  if 'img' in request.FILES:
+    img = Image.open(request.FILES['img'])
+    datos = decode(img)
+    if datos:
+      for obj in datos:
+        texto += obj.data.decode('utf-8')
+    else:
+      texto = 'Error al procesar imagen'
+
+  return render(request, 'qr/decodificar.html', {'resultado': texto})
