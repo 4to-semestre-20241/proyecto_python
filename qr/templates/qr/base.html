@@ -6,8 +6,12 @@
         <script src="{% static 'qr/js/tailwindcss.js' %}"></script>
     </head>
     <body>
-        <header class="navbar bg-sky-900 flex justify-between px-2">
-            <h1 class="text-xl text-white">Logo</h1>
+        <header class="navbar bg-sky-900 flex justify-between px-4">
+            <div class="flex items-center">
+                <svg width="40" height="40" xmlns="http://www.w3.org/2000/svg"  fill="none" style="stroke: rgb(255, 255, 255); stroke-width:2"><g data-testid="Group"><g data-testid="Rectangle"><rect rx="0" ry="0" x="5.67" y="5.67" transform="rotate(32 20.67 20.67)" width="30" height="30" style="fill: rgb(255, 255, 255); fill-opacity: 0;" fill="none" class="fills"/><g class="strokes"><g class="inner-stroke-shape" transform="rotate(32 20.67 20.67)"><defs><clipPath id="b"><use href="#a"/></clipPath><rect rx="0" ry="0" x="5.67" y="5.67" width="30" height="30" id="a" style="fill: none; stroke-width: 2; stroke: rgb(0, 0, 0); stroke-opacity: 1;"/></defs><use href="#a" clip-path="url('#b')"/></g></g></g><g data-testid="qr-code-svgrepo-com" style="fill: rgb(0, 0, 0);"><path d="M16.885 9.181H8.703v8.182h8.182V9.181ZM5.976 6.454V20.09h13.636V6.454H5.976Zm10.909 19.091H8.703v8.181h8.182v-8.181ZM5.976 22.817v13.637h13.636V22.817H5.976ZM25.067 9.181h8.182v8.182h-8.182V9.181ZM22.34 20.09V6.454h13.636V20.09H22.34Zm0 10.909v-8.182h2.727v8.182H22.34ZM11.431 11.908v2.728h2.727v-2.728h-2.727Zm0 19.091v-2.727h2.727v2.727h-2.727Zm16.363-19.091v2.728h2.727v-2.728h-2.727Zm5.455 24.546v-4.091h2.727v4.091h-2.727Zm0-13.637v4.091h-2.728v-4.091h-2.727v10.909H22.34v2.728h8.181v-6.818h5.455V22.817h-2.727Z" fill-rule="evenodd" clip-rule="evenodd" style="fill: rgb(8, 3, 65);" class="fills" data-testid="svg-path"/></g></g></svg>
+                <span class="px-2 text-3xl text-white">QR</span>
+                <span class="text-white">v2.0</span>
+            </div>
             <h3 class="text-xl text-white">UNERG - ORTIZ</h3>
         </header>
         {% block contenido %}{% endblock %}
